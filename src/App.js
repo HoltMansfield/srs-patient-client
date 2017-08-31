@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Rating } from 'semantic-ui-react'
+import './App.css'
+import logo from './style/images/stanford.jpeg'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div>
+        <div className="ui fixed menu">
+          <a><img src={logo} height="80" /></a>
+          <a className="item"></a>
+          <a className="item">Editorials</a>
+          <a className="item">Reviews</a>
+          <a className="item">Upcoming Events</a>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div style={{ height: '1900px' }}>mama</div>
       </div>
     );
   }
