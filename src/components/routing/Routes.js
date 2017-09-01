@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { HashRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import ProtectedRoute from './ProtectedRoute'
 import Dashboard from '../dashboard/Dashboard'
 import Reports from '../reports/Reports'
 import Login from '../login/Login'
+import LandingPage from '../landing/LandingPage'
+import NotFound from '../404/NotFound'
 import * as actions from '../../actions'
 
 
@@ -14,12 +16,15 @@ export class Routes extends Component {
     const { loggedInUser } = this.props
 
     return (
-      <div>
-        <Route path="/" component={Dashboard} />
-        <Route path="/login" component={Login} />
-        <Route path="/reports" component={Reports} />
-        // <ProtectedRoute path="/reports" component={Reports} />
-      </div>
+      <HashRouter>
+        <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/login" component={Login} />
+            <ProtectedRoute path="/reports" component={Reports} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <Route component={NotFound} />
+        </Switch>
+      </HashRouter>
     )
   }
 }
