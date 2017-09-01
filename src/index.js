@@ -4,11 +4,12 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { HashRouter, Route } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import './semantic/dist/semantic.min.css'
 import './index.css'
 import reducer from './reducers'
-import App from './components/app/App'
+import Routes from './components/routing/Routes'
+import TopMenu from './components/topMenu/TopMenu'
 import registerServiceWorker from './registerServiceWorker'
 
 const store = createStore(
@@ -22,7 +23,8 @@ ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
       <div>
-        <Route exact path="/" component={App} />
+        <TopMenu />
+        <Routes />
       </div>
     </HashRouter>
   </Provider>,
