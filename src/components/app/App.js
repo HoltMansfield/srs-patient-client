@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Rating } from 'semantic-ui-react'
 import { Dropdown, Icon, Input, Menu, Segment } from 'semantic-ui-react'
 import './App.css'
-import logo from './style/images/stanford.jpeg'
+import logo from '../../style/images/stanford.jpeg'
 
 class App extends Component {
   constructor(props) {
@@ -40,10 +40,6 @@ class App extends Component {
             </Dropdown>
           </Menu.Menu>
         </Menu>
-
-        <Segment attached='bottom'>
-          <img src='/assets/images/wireframe/paragraph.png' />
-        </Segment>
       </div>
     );
   }
