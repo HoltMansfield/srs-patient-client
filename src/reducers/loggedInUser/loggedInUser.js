@@ -1,4 +1,4 @@
-const initialState = null
+const initialState = { first: 'John', last: 'Blaze' }
 
 const loggedInUser = (state = initialState, action) => {
   switch (action.type) {
