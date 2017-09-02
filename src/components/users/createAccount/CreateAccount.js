@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import * as actions from '../../actions'
+import * as actions from '../../../actions'
 
-export class Login extends Component {
+export class CreateUser extends Component {
   render() {
     return (
-      <div>Loginly</div>
+      <div>Creaty</div>
     )
   }
 }
@@ -20,4 +20,4 @@ export default connect(
 
       }
     },
-)(Login)
+)(CreateUser)
