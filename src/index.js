@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import './semantic/dist/semantic.min.css'
+
 import './index.css'
 import reducer from './reducers'
 import Routes from './components/routing/Routes'
@@ -18,6 +19,8 @@ const store = createStore(
     applyMiddleware(thunk)
   )
 )
+
+
 
 ReactDOM.render(
   <Provider store={store}>
