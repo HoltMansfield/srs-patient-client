@@ -8,8 +8,7 @@ import './semantic/dist/semantic.min.css'
 
 import './index.css'
 import reducer from './reducers'
-import Routes from './components/routing/Routes'
-import TopMenu from './components/topMenu/TopMenu'
+import App from './components/app/App'
 import registerServiceWorker from './registerServiceWorker'
 
 
@@ -20,14 +19,9 @@ const store = createStore(
   )
 )
 
-
-
 ReactDOM.render(
   <Provider store={store}>
-    <div>
-      <TopMenu />
-      <Routes />
-    </div>
+    <App />
   </Provider>,
   document.getElementById('root'))
 

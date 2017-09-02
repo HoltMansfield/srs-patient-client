@@ -12,12 +12,15 @@ export class Login extends Component {
   }
 
   handleSubmit() {
-    const newUser = {
+    const loginAttempt = {
       email: ReactDOM.findDOMNode(this.refs.email).value,
       password: ReactDOM.findDOMNode(this.refs.password).value
     }
 
-    console.log(newUser)
+    this.props.login(loginAttempt)
+      .then(user => {
+        console.log('user')
+      })
   }
 
   render() {
@@ -53,7 +56,7 @@ export default connect(
       }
     },
   dispatch => { return {
-
+        login: loginAttempt => dispatch(actions.httpPost('users/login', loginAttempt))
       }
     },
 )(Login)
