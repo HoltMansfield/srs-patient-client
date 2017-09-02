@@ -36,7 +36,7 @@ export class Login extends Component {
                 <label>Password</label>
                 <input placeholder='password' ref='password' />
               </Form.Field>
-              <Button type='submit' onClick={this.handleSubmit}>Create Account</Button>
+              <Button type='submit' onClick={this.handleSubmit}>Login</Button>
             </Form>
             </Segment>
           </Grid.Column>
