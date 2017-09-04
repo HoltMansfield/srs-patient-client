@@ -14,15 +14,13 @@ const formikConfig = {
   // not shown)
   mapPropsToValues: props => ({
     email: '',
-    twitter: 'props.user.social.twitter',
-    facebook: 'props.user.social.facebook'
+    password: ''
   }),
   // We can optionally define our a validation schema with Yup. It's like Joi, but for
   // the browser. Errors from Yup will be injected as `errors` into the form.
   validationSchema: Yup.object().shape({
     email: Yup.string().email().required('Bruh, email is required'),
-    twitter: Yup.string(),
-    facebook: Yup.string()
+    password: Yup.string()
   }),
   // Formik lets you colocate your submission handler with your form.
   // In addition to your from `values`, you have
@@ -33,6 +31,13 @@ const formikConfig = {
     // called before handleSubmit is. So you don't have to do repeat this.
     // handleSubmit will only be executed if form values pass validation (if you specify it).
     console.log('handleSubmit')
+    // const newUser = {
+    //   email: values['email'],
+    //   password: values['password']
+    // }
+    //
+    // this.props.saveUser(newUser)
+    //   .then(data => console.log(data))
   },
   validateOnChange: true
 }
@@ -50,8 +55,8 @@ export class CreateAccount extends Component {
 
   save() {
     const newUser = {
-      email: this.state.email,
-      password: this.state.password
+      email: this.props.values.email,
+      password: this.props.values.password
     }
 
     this.props.saveUser(newUser)
@@ -110,6 +115,11 @@ export class CreateAccount extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {errors.password &&
+                    touched.password &&
+                    <div>
+                      {errors.password}
+                    </div>}
               </Form.Field>
               <Button disabled={this.shouldEnableSubmit()} type='submit' onClick={this.save}>Create Account</Button>
             </Form>
