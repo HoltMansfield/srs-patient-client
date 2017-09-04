@@ -1,7 +1,5 @@
 import axios from 'axios'
 import { notify } from 'react-notify-toast'
-import { bindActionCreators } from 'redux'
-
 import { myConfig } from '../../whitelabel/config.js'
 import { showOverlay, hideOverlay } from '../overlay/overlayActions'
 

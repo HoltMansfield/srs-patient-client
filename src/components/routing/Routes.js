@@ -9,12 +9,10 @@ import Login from '../users/login/Login'
 import CreateAccount from '../users/createAccount/CreateAccount'
 import LandingPage from '../landing/LandingPage'
 import NotFound from '../404/NotFound'
-import * as actions from '../../actions'
 
-
+// ToDo: static component?
 export class Routes extends Component {
   render() {
-    const { loggedInUser } = this.props
 
     return (
       <HashRouter>
@@ -33,7 +31,7 @@ export class Routes extends Component {
 
 export default connect(
   state => { return {
-        loggedInUser: state.loggedInUser
+
       }
     },
   dispatch => { return {

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Icon } from 'semantic-ui-react'
 
-import * as actions from '../../actions'
 
 export class Overlay extends Component {
   render() {
