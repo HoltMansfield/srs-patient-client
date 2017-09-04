@@ -10,7 +10,7 @@ describe('CreateAccount component',  () => {
 
   it('renders', () => {
     const save = jest.fn();
-    const wrapper = shallow(<CreateAccount save={save} />)
+    const wrapper = mount(<CreateAccount save={save} />)
     const grids = wrapper.find(Grid)
 
     expect(grids.length).toEqual(1)
