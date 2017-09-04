@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Segment, Grid, Form, Button } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
+import Validation from 'react-validation';
 import * as actions from '../../../actions'
 
 
@@ -45,7 +46,8 @@ export class CreateAccount extends Component {
               <Form>
               <Form.Field>
                 <label>E-Mail</label>
-                <input placeholder='email' ref='email' name='email' onChange={this.handleChange} />
+                // <Validation.components.Input value='really' ref='email' name='email' onChange={this.handleChange} validations={['required', 'email']}/>
+                <Validation.components.Input value='email@email.com' name='email' validations={['required', 'email']}/>
               </Form.Field>
               <Form.Field>
                 <label>Password</label>

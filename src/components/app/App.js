@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Notifications from 'react-notify-toast'
+import './react-validation-setup'
 
 import Routes from '../../components/routing/Routes'
 import TopMenu from '../../components/topMenu/TopMenu'
