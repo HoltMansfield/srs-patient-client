@@ -9,36 +9,10 @@ import * as actions from '../../../actions'
 
 
 const formikConfig = {
-  // We now map React props to form values. These will be injected as [`values`] into
-  // our form. (Note: in the real world, you would destructure props, but for clarity this is
-  // not shown)
-  mapPropsToValues: props => ({
-    email: '',
-    password: ''
-  }),
-  // We can optionally define our a validation schema with Yup. It's like Joi, but for
-  // the browser. Errors from Yup will be injected as `errors` into the form.
   validationSchema: Yup.object().shape({
     email: Yup.string().email().required('Bruh, email is required'),
-    password: Yup.string()
+    password: Yup.string().required('Bruh, password is required')
   }),
-  // Formik lets you colocate your submission handler with your form.
-  // In addition to your from `values`, you have
-  // access to all props and some stateful helpers.
-  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
-    // do stuff with your payload
-    // e.preventDefault(), setSubmitting, setError(undefined) are
-    // called before handleSubmit is. So you don't have to do repeat this.
-    // handleSubmit will only be executed if form values pass validation (if you specify it).
-    console.log('handleSubmit')
-    // const newUser = {
-    //   email: values['email'],
-    //   password: values['password']
-    // }
-    //
-    // this.props.saveUser(newUser)
-    //   .then(data => console.log(data))
-  },
   validateOnChange: true
 }
 
@@ -46,11 +20,6 @@ export class CreateAccount extends Component {
   constructor(props) {
     super(props)
     this.save = this.save.bind(this)
-    //this.handleChange = this.handleChange.bind(this)
-    // this.state = {
-    //   email: '',
-    //   password: ''
-    // }
   }
 
   save() {
@@ -63,15 +32,12 @@ export class CreateAccount extends Component {
       .then(data => console.log(data))
   }
 
-  // handleChange(e) {
-  //   this.setState({ [e.target.name]: e.target.value })
-  // }
-
   shouldEnableSubmit() {
     return !(this.props.values['email'] && this.props.values['password'])
   }
 
   render() {
+    console.log('this.props %j', this.props)
     const {
       values,
       touched,
