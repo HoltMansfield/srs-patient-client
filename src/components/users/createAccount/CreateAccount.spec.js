@@ -16,6 +16,7 @@ describe('CreateAccount component',  () => {
       },
       handleBlur: jest.fn(),
       handleChange: jest.fn(),
+      history: { push: jest.fn() },
       errors: {
         email: false
       },
@@ -29,8 +30,9 @@ describe('CreateAccount component',  () => {
     expect(grids.length).toEqual(1)
   });
 
-  it('renders nothing when user is logged in', () => {
+  it('calls api when form is submitted', async () => {
     const saveUser = jest.fn(() => Promise.resolve(true))
+    const historyPush = jest.fn()
     const props = {
       values: {
         email: '',
@@ -38,6 +40,7 @@ describe('CreateAccount component',  () => {
       },
       handleBlur: jest.fn(),
       handleChange: jest.fn(),
+      history: { push: historyPush },
       errors: {
         email: false
       },
@@ -48,8 +51,9 @@ describe('CreateAccount component',  () => {
     }
     const wrapper = mount(<CreateAccount { ...props } />)
 
-    wrapper.find('form').simulate('submit', syntheticEvent)
+    await wrapper.find('form').simulate('submit', syntheticEvent)
 
     expect(saveUser.mock.calls.length).toBe(1)
+    expect(historyPush.mock.calls.length).toBe(1)
   });
 })

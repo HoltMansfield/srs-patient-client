@@ -20,6 +20,7 @@ export class Routes extends Component {
             <Route exact path="/" component={LandingPage} />
             <Route path="/login" component={Login} />
             <Route path="/create-account" component={CreateAccount} />
+            <Route path="/create-account/verify" component={CreateAccount} />
             <ProtectedRoute path="/reports" component={Reports} />
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />

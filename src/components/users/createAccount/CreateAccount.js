@@ -31,11 +31,7 @@ export class CreateAccount extends Component {
 
     this.props.saveUser(newUser)
       .then(data => {
-        console.log(data)
-        history.push('/my-new-location')
-      })
-      .catch(() => {
-        console.log('catch')
+        history.push('/create-account/verify')
       })
   }
 
