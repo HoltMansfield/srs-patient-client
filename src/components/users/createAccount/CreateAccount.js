@@ -23,7 +23,6 @@ export class CreateAccount extends Component {
   }
 
   save() {
-    console.log('save totally fired')
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
