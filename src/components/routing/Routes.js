@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import ProtectedRoute from './ProtectedRoute'
@@ -15,7 +15,7 @@ export class Routes extends Component {
   render() {
 
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/login" component={Login} />
@@ -24,7 +24,7 @@ export class Routes extends Component {
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }

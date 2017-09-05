@@ -23,13 +23,20 @@ export class CreateAccount extends Component {
   }
 
   save() {
+    const { history } = this.props
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
     }
 
     this.props.saveUser(newUser)
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        history.push('/my-new-location')
+      })
+      .catch(() => {
+        console.log('catch')
+      })
   }
 
   shouldEnableSubmit() {
@@ -86,7 +93,7 @@ export class CreateAccount extends Component {
                       {errors.password}
                     </div>}
               </Form.Field>
-              <Button disabled={this.shouldEnableSubmit()} type='submit' onClick={this.save}>Create Account</Button>
+              <Button disabled={this.shouldEnableSubmit()} type='submit'>Create Account</Button>
             </Form>
             </Segment>
           </Grid.Column>

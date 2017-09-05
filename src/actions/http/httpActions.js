@@ -14,10 +14,13 @@ const getErrorMessage = result => {
 const displayError = (data, dispatch) => {
   const errorMessage = getErrorMessage(data)
 
-  notify.show(errorMessage, 'error', 2500)
+  // setTimeout fixes a flicker with the overlay being displayed for very fast http cals
   setTimeout(() => {
     dispatch(hideOverlay())
   }, 300)
+
+  notify.show(errorMessage, 'error', 2500)
+  throw new Error(errorMessage)
 }
 
 const doHideOverlay = (dispatch) => {
@@ -59,7 +62,8 @@ export const httpPost = (url, data, useOverlay = true) => {
     return axios.post(`${myConfig.apiUrl}/${url}`, data)
       .then(response => {
         doHideOverlay(dispatch)
-        return response.data;
+
+        return response.data
       })
       .catch(data => displayError(data, dispatch))
   }
