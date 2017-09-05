@@ -23,6 +23,7 @@ export class CreateAccount extends Component {
   }
 
   save() {
+    console.log('save totally fired')
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
@@ -37,7 +38,6 @@ export class CreateAccount extends Component {
   }
 
   render() {
-    console.log('this.props %j', this.props)
     const {
       values,
       touched,
@@ -56,7 +56,7 @@ export class CreateAccount extends Component {
           <Grid.Column></Grid.Column>
           <Grid.Column>
             <Segment raised>
-              <Form>
+              <Form onSubmit={this.save}>
               <Form.Field>
                 <label>E-Mail</label>
                   <input id="email"
