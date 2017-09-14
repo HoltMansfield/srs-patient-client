@@ -23,7 +23,7 @@ export class CreateAccount extends Component {
   }
 
   save() {
-    const { history } = this.props
+    const { history, setLoggedInUser } = this.props
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
@@ -31,8 +31,11 @@ export class CreateAccount extends Component {
 
     this.props.saveUser(newUser)
       .then(data => {
+        setLoggedInUser(data.user)
+        localStorage.setItem('jwt', data.jwt)
         history.push('/create-account/verify')
       })
+      .catch(() => {})
   }
 
   shouldEnableSubmit() {
@@ -106,7 +109,8 @@ const connectedComponent = connect(
       }
     },
   dispatch => { return {
-        saveUser: newUser => dispatch(actions.httpPost('participants', newUser))
+        saveUser: newUser => dispatch(actions.httpPost('participants', newUser)),
+        setLoggedInUser: user => dispatch(actions.setLoggedInUser(user))
       }
     },
 )(CreateAccount)

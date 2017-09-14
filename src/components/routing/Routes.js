@@ -7,6 +7,7 @@ import Dashboard from '../dashboard/Dashboard'
 import Reports from '../reports/Reports'
 import Login from '../users/login/Login'
 import CreateAccount from '../users/createAccount/CreateAccount'
+import VerifyAccount from '../users/verifyAccount/VerifyAccount'
 import LandingPage from '../landing/LandingPage'
 import NotFound from '../404/NotFound'
 
@@ -18,11 +19,11 @@ export class Routes extends Component {
       <BrowserRouter>
         <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/login" component={Login} />
-            <Route path="/create-account" component={CreateAccount} />
-            <Route path="/create-account/verify" component={CreateAccount} />
-            <ProtectedRoute path="/reports" component={Reports} />
-            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/create-account" component={CreateAccount} />
+            <Route exact path="/create-account/verify" component={VerifyAccount} />
+            <ProtectedRoute exact path="/reports" component={Reports} />
+            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
