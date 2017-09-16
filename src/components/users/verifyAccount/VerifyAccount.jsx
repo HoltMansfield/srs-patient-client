@@ -18,7 +18,15 @@ const formikConfig = {
 }
 
 export class VerifyAccount extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      code: null
+    }
+  }
+
   componentWillMount() {
+    const { setState } = this
     if(!this.props.loggedInUser) {
       return;
     }
@@ -27,7 +35,9 @@ export class VerifyAccount extends Component {
 
     this.props.getVerificationCode(query)
       .then(code => {
-
+        setState({
+          code
+        })
       })
   }
 
@@ -87,7 +97,7 @@ export class VerifyAccount extends Component {
 
 const connectedComponent = connect(
   state => { return {
-
+        loggedInUser: state.loggedInUser
       }
     },
   dispatch => { return {

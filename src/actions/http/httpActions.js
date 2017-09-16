@@ -3,6 +3,10 @@ import { notify } from 'react-notify-toast'
 import { myConfig } from '../../whitelabel/config.js'
 import { showOverlay, hideOverlay } from '../overlay/overlayActions'
 
+if(localStorage) {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('jwt')
+}
+
 const getErrorMessage = result => {
   if(result.response && result.response.data && result.response.data.message) {
     return result.response.data.message
