@@ -26,7 +26,7 @@ export class VerifyAccount extends Component {
   }
 
   componentWillMount() {
-    const { setState } = this
+    const setState = this.setState.bind(this)
     if(!this.props.loggedInUser) {
       return;
     }
@@ -34,9 +34,9 @@ export class VerifyAccount extends Component {
     const query = { userId: this.props.loggedInUser._id }
 
     this.props.getVerificationCode(query)
-      .then(code => {
+      .then(queryResult => {
         setState({
-          code
+          code: queryResult[0].code
         })
       })
   }

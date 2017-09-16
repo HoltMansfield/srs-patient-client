@@ -10,8 +10,8 @@ import * as actions from '../../../actions'
 
 const formikConfig = {
   validationSchema: Yup.object().shape({
-    email: Yup.string().email().required('Bruh, email is required'),
-    password: Yup.string().required('Bruh, password is required')
+    email: Yup.string().email().required('E-mail is required'),
+    password: Yup.string().required('Password is required')
   }),
   validateOnChange: true
 }
@@ -23,19 +23,29 @@ export class CreateAccount extends Component {
   }
 
   save() {
-    const { history, setLoggedInUser } = this.props
+    const { history, setLoggedInUser, createVerificationCode } = this.props
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
     }
 
-    this.props.saveUser(newUser)
+    return this.props.saveUser(newUser)
       .then(data => {
         setLoggedInUser(data.user)
         localStorage.setItem('jwt', data.jwt)
-        history.push('/create-account/verify')
+
+        const newCode = { userId: data.user._id, code: '123' }
+
+        return createVerificationCode(newCode)
+          .then((data) => {
+            history.push('/create-account/verify')
+            //ToDo: test throwing from here
+            //Todo: bounce past verfication step if create code fails?
+        })
       })
-      .catch(() => {})
+      .catch(() => {
+        //ToDo: fix http error handling
+      })
   }
 
   shouldEnableSubmit() {
@@ -110,6 +120,7 @@ const connectedComponent = connect(
     },
   dispatch => { return {
         saveUser: newUser => dispatch(actions.httpPost('participants', newUser)),
+        createVerificationCode: newCode => dispatch(actions.httpPost('verificationCodes', newCode)),
         setLoggedInUser: user => dispatch(actions.setLoggedInUser(user))
       }
     },

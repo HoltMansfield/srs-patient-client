@@ -33,9 +33,23 @@ const doHideOverlay = (dispatch) => {
   }, 300)
 }
 
-export const httpGet = (url, useOverlay = true) => {
+const getOptions = (options) => {
+  if(!options) {
+    options = {}
+  }
+
+  if(!options.useOverlay) {
+    options.useOverlay = true
+  }
+
+  return options
+}
+
+export const httpGet = (url, _options) => {
+  const options = getOptions(_options)
+
   return dispatch => {
-    if(useOverlay) dispatch(showOverlay())
+    if(options.useOverlay) dispatch(showOverlay())
 
     return axios.get(`${myConfig.apiUrl}/${url}`)
       .then(response => {
@@ -46,9 +60,11 @@ export const httpGet = (url, useOverlay = true) => {
   }
 }
 
-export const httpPut = (url, data, useOverlay = true) => {
+export const httpPut = (url, data, _options) => {
+  const options = getOptions(_options)
+
   return dispatch => {
-    if(useOverlay) dispatch(showOverlay())
+    if(options.useOverlay) dispatch(showOverlay())
 
     return axios.put(`${myConfig.apiUrl}/${url}`, data)
       .then(response => {
@@ -59,9 +75,11 @@ export const httpPut = (url, data, useOverlay = true) => {
   }
 }
 
-export const httpPost = (url, data, useOverlay = true) => {
+export const httpPost = (url, data, _options) => {
+  const options = getOptions(_options)
+
   return dispatch => {
-    if(useOverlay) dispatch(showOverlay())
+    if(options.useOverlay) dispatch(showOverlay())
 
     return axios.post(`${myConfig.apiUrl}/${url}`, data)
       .then(response => {
@@ -73,9 +91,11 @@ export const httpPost = (url, data, useOverlay = true) => {
   }
 }
 
-export const httpDelete = (url, useOverlay = true) => {
+export const httpDelete = (url, _options) => {
+  const options = getOptions(_options)
+
   return dispatch => {
-    dispatch(showOverlay())
+    if(options.useOverlay) dispatch(showOverlay())
 
     return axios.delete(`${myConfig.apiUrl}/${url}`)
       .then(response => {
