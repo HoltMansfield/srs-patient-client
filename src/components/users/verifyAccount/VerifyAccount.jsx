@@ -23,6 +23,7 @@ export class VerifyAccount extends Component {
     this.state = {
       code: null
     }
+    this.verify = this.verify.bind(this)
   }
 
   componentWillMount() {
@@ -42,7 +43,9 @@ export class VerifyAccount extends Component {
   }
 
   verify() {
-
+    if(this.props.values['code'] === this.state.code) {
+      this.props.history.push('/inbox')
+    }
   }
 
   shouldEnableSubmit() {
