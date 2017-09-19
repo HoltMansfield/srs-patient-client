@@ -14,7 +14,6 @@ export class ProtectedRoute extends Component {
       <Route
         {...rest}
         render={(props) => {
-          console.log(props.location)
           return loggedInUser != null
           ? <Component {...props} />
         : <Redirect to={{pathname: '/', state: {from: props.location}}} />}}

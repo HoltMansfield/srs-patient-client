@@ -23,7 +23,7 @@ export class CreateAccount extends Component {
   }
 
   save() {
-    const { history, setLoggedInUser, createVerificationCode } = this.props
+    const { history, setLoggedInUser, createVerificationCode, httpSetToken } = this.props
     const newUser = {
       email: this.props.values.email,
       password: this.props.values.password
@@ -32,6 +32,7 @@ export class CreateAccount extends Component {
     return this.props.saveUser(newUser)
       .then(data => {
         setLoggedInUser(data.user)
+        httpSetToken(data.jwt)
         localStorage.setItem('jwt', data.jwt)
 
         const newCode = { userId: data.user._id, code: '123' }
@@ -120,6 +121,7 @@ const connectedComponent = connect(
     },
   dispatch => { return {
         saveUser: newUser => dispatch(actions.httpPost('participants', newUser)),
+        httpSetToken: token => dispatch(actions.httpSetToken(token)),
         createVerificationCode: newCode => dispatch(actions.httpPost('verificationCodes', newCode)),
         setLoggedInUser: user => dispatch(actions.setLoggedInUser(user))
       }

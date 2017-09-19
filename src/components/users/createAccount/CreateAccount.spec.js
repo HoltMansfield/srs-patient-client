@@ -43,6 +43,7 @@ describe('CreateAccount component',  () => {
 
   it('calls save when form is submitted', async () => {
     const saveUser = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
+    const httpSetToken = jest.fn()
     const createVerificationCode = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
     const historyPush = jest.fn()
     const setLoggedInUser = jest.fn()
@@ -62,6 +63,7 @@ describe('CreateAccount component',  () => {
         email: false
       },
       saveUser,
+      httpSetToken,
       createVerificationCode,
       setLoggedInUser
     }
@@ -74,6 +76,7 @@ describe('CreateAccount component',  () => {
 
   it('save method peforms various functions', async () => {
     const saveUser = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
+    const httpSetToken = jest.fn()
     const createVerificationCode = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
     const historyPush = jest.fn()
     const setLoggedInUser = jest.fn()
@@ -93,6 +96,7 @@ describe('CreateAccount component',  () => {
         email: false
       },
       saveUser,
+      httpSetToken,
       createVerificationCode,
       setLoggedInUser
     }

@@ -4,7 +4,11 @@ import { myConfig } from '../../whitelabel/config.js'
 import { showOverlay, hideOverlay } from '../overlay/overlayActions'
 
 if(localStorage) {
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('jwt')
+  const token = localStorage.getItem('jwt')
+
+  if(token) {
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+  }
 }
 
 const getErrorMessage = result => {
@@ -103,5 +107,15 @@ export const httpDelete = (url, _options) => {
         return response.data;
       })
       .catch(data => displayError(data, dispatch))
+  }
+}
+
+export const httpSetToken = token => {
+  return dispatch => {
+    if(token) {
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+    } else {
+      throw new Error('A Valid JWT Token is required')
+    }
   }
 }
