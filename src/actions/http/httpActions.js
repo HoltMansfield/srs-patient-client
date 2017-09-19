@@ -119,3 +119,10 @@ export const httpSetToken = token => {
     }
   }
 }
+
+export const httpClearToken = () => {
+  return dispatch => {
+    axios.defaults.headers.common['Authorization'] = ''
+    localStorage.removeItem('jwt')
+  }
+}
