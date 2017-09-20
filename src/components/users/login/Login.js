@@ -12,14 +12,18 @@ export class Login extends Component {
   }
 
   handleSubmit() {
+    const { history, setLoggedInUser, httpSetToken } = this.props
     const loginAttempt = {
       email: ReactDOM.findDOMNode(this.refs.email).value,
       password: ReactDOM.findDOMNode(this.refs.password).value
     }
 
     this.props.login(loginAttempt)
-      .then(user => {
-        console.log('user')
+      .then(data => {
+        setLoggedInUser(data.user)
+        httpSetToken(data.jwt)
+        localStorage.setItem('jwt', data.jwt)
+        history.push('/inbox')
       })
   }
 
@@ -37,7 +41,7 @@ export class Login extends Component {
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input placeholder='password' ref='password' />
+                <input placeholder='password' ref='password' type="password" />
               </Form.Field>
               <Button type='submit' onClick={this.handleSubmit}>Login</Button>
             </Form>
@@ -56,7 +60,9 @@ export default connect(
       }
     },
   dispatch => { return {
-        login: loginAttempt => dispatch(actions.httpPost('users/login', loginAttempt))
+        login: loginAttempt => dispatch(actions.httpPost('participants/authenticate', loginAttempt)),
+        httpSetToken: token => dispatch(actions.httpSetToken(token)),
+        setLoggedInUser: user => dispatch(actions.setLoggedInUser(user))
       }
     },
 )(Login)
