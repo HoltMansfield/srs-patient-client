@@ -21,9 +21,12 @@ export class RightCornerMenu extends Component {
   render() {
     return (
       <Menu.Menu position='right'>
-        <Dropdown item icon='user' simple>
+        <Dropdown item className='icon' icon='wrench' simple>
           <Dropdown.Menu className='left'>
-            <Dropdown.Item onClick={this.logOut}>Log Out</Dropdown.Item>
+            <Dropdown.Item onClick={this.logOut}>
+              <div>Log Out</div>
+              <div className='fine-print margin-top-10'>{this.props.user.email}</div>
+            </Dropdown.Item>
             <Dropdown.Item>Edit Profile</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -34,7 +37,7 @@ export class RightCornerMenu extends Component {
 
 const connectedComponent = connect(
   state => { return {
-
+        user: state.loggedInUser
       }
     },
   dispatch => { return {

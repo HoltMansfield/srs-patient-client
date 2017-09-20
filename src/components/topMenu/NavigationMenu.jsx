@@ -8,7 +8,7 @@ export class NavigationMenu extends Component {
   render() {
     return (
       <Menu.Menu>
-        <Dropdown item icon='content' simple>
+        <Dropdown item className="icon" icon='content' simple>
           <Dropdown.Menu>
             <Dropdown.Item><Link to="/inbox">Inbox</Link></Dropdown.Item>
           </Dropdown.Menu>

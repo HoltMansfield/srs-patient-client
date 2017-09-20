@@ -5,6 +5,7 @@ import { Segment, Grid, Form, Button } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import { Formik } from 'formik';
 import Yup from 'yup';
+import { notify } from 'react-notify-toast'
 import * as actions from '../../../actions'
 
 
@@ -34,6 +35,7 @@ export class CreateAccount extends Component {
         setLoggedInUser(data.user)
         httpSetToken(data.jwt)
         localStorage.setItem('jwt', data.jwt)
+        notify.show(`Logged in as ${data.user.email}`, 'success', 1500)
 
         const newCode = { userId: data.user._id, code: '123' }
 

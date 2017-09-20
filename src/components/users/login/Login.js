@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Segment, Grid, Form, Button } from 'semantic-ui-react'
-
+import { notify } from 'react-notify-toast'
 import * as actions from '../../../actions'
 
 export class Login extends Component {
@@ -23,6 +23,7 @@ export class Login extends Component {
         setLoggedInUser(data.user)
         httpSetToken(data.jwt)
         localStorage.setItem('jwt', data.jwt)
+        notify.show(`Logged in as ${data.user.email}`, 'success', 1500)
         history.push('/inbox')
       })
   }
