@@ -75,7 +75,7 @@ describe('CreateAccount component',  () => {
   });
 
   it('save method peforms various functions', async () => {
-    const saveUser = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
+    const saveUser = jest.fn(() => Promise.resolve({ user: { email: '' }, jwt: {} }))
     const httpSetToken = jest.fn()
     const createVerificationCode = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
     const historyPush = jest.fn()
@@ -105,10 +105,11 @@ describe('CreateAccount component',  () => {
     return wrapper.instance().save()
       .then(() => {
         expect(saveUser.mock.calls.length).toBe(1)
-        expect(createVerificationCode.mock.calls.length).toBe(1)
         expect(setLoggedInUser.mock.calls.length).toBe(1)
-        expect(historyPush.mock.calls.length).toBe(1)
         expect(localStorageMock.setItem.mock.calls.length).toBe(1)
+        expect(httpSetToken.mock.calls.length).toBe(1)
+        expect(createVerificationCode.mock.calls.length).toBe(1)
+        expect(historyPush.mock.calls.length).toBe(1)
       })
   });
 })
