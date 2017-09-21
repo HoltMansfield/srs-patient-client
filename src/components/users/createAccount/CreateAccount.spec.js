@@ -42,12 +42,6 @@ describe('CreateAccount component',  () => {
   });
 
   it('calls save when form is submitted', async () => {
-    const saveUser = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
-    const httpSetToken = jest.fn()
-    const createVerificationCode = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
-    const historyPush = jest.fn()
-    const setLoggedInUser = jest.fn()
-    const localStorageMock = getLocalStorageMock()
     const props = {
       values: {
         email: '',
@@ -55,29 +49,28 @@ describe('CreateAccount component',  () => {
       },
       handleBlur: jest.fn(),
       handleChange: jest.fn(),
-      history: { push: historyPush },
       errors: {
         email: false
       },
       touched: {
         email: false
-      },
-      saveUser,
-      httpSetToken,
-      createVerificationCode,
-      setLoggedInUser
+      }
     }
     const wrapper = mount(<CreateAccount { ...props } />)
+    const saveMock = jest.fn()
+    wrapper.instance().save = saveMock
+    wrapper.update()
 
     await wrapper.find('form').simulate('submit', syntheticEvent)
 
-    expect(saveUser.mock.calls.length).toBe(1)
+    expect(saveMock.mock.calls.length).toBe(1)
   });
 
   it('save method peforms various functions', async () => {
     const saveUser = jest.fn(() => Promise.resolve({ user: { email: '' }, jwt: {} }))
     const httpSetToken = jest.fn()
     const createVerificationCode = jest.fn(() => Promise.resolve({ user: {}, jwt: {} }))
+    const createAlert = jest.fn(() => Promise.resolve({ }))
     const historyPush = jest.fn()
     const setLoggedInUser = jest.fn()
     const localStorageMock = getLocalStorageMock()
@@ -98,6 +91,7 @@ describe('CreateAccount component',  () => {
       saveUser,
       httpSetToken,
       createVerificationCode,
+      createAlert,
       setLoggedInUser
     }
     const wrapper = mount(<CreateAccount { ...props } />)

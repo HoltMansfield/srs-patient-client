@@ -20,12 +20,12 @@ export class Inbox extends Component {
 
           <Menu.Item name='alerts' active={activeItem === 'alerts'} onClick={this.handleItemClick}>
             <Label>51</Label>
-            Spam
+            Alerts
           </Menu.Item>
 
           <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick}>
             <Label>1</Label>
-            Updates
+            Messages
           </Menu.Item>
           <Menu.Item>
             <Input icon='search' placeholder='Search inbox...' />
