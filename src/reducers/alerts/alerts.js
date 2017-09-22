@@ -1,4 +1,4 @@
-const initialState = null
+const initialState = []
 
 const alerts = (state = initialState, action) => {
   switch (action.type) {

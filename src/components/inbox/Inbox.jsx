@@ -5,25 +5,36 @@ import * as actions from '../../actions'
 import InboxSideMenu from './inbox-side-menu/InboxSideMenu'
 
 export class Inbox extends Component {
+  state = { messageViewMode: 'alerts', searchTerms: '' }
+
   componentWillMount() {
-    const { getAlerts, getMessages, loggedInUser } = this.props
+    const { getAlerts, getMessages, setAlerts, setMessages, loggedInUser } = this.props
     const query = { userId: loggedInUser._id }
 
     getAlerts(query)
       .then(data => {
-        console.log(data)
+        setAlerts(data)
       })
 
     getMessages(query)
       .then(data => {
-        console.log(data)
+        setMessages(data)
       })
+  }
+
+  setMessageViewMode(messageViewMode) {
+    this.setState({ messageViewMode })
+  }
+
+  setSearchTerms(searchTerms) {
+    this.setState({ searchTerms })
   }
 
   render() {
     return (
       <div className='padded-page'>
-        <InboxSideMenu />
+        <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
+                       setSearchTerms={this.setSearchTerms.bind(this)} />
       </div>
     )
   }
@@ -36,7 +47,9 @@ export default connect(
     },
   dispatch => { return {
         getAlerts: query => dispatch(actions.httpPost('alerts/query', query)),
-        getMessages: query => dispatch(actions.httpPost('messages/query', query))
+        getMessages: query => dispatch(actions.httpPost('messages/query', query)),
+        setMessages: messages => dispatch(actions.messages.set(messages)),
+        setAlerts: alerts => dispatch(actions.alerts.set(alerts))
       }
     },
 )(Inbox)
