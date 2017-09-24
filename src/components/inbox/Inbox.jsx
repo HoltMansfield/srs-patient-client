@@ -37,14 +37,12 @@ export class Inbox extends Component {
       <div className='padded-page'>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={2}>
+            <Grid.Column width={3}>
               <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
                              setSearchTerms={this.setSearchTerms.bind(this)} />
             </Grid.Column>
-            <Grid.Column width={14}>
-              <div className='pad-left-20'>
-                <Messages />
-              </div>
+            <Grid.Column width={13}>
+              <Messages />
             </Grid.Column>
           </Grid.Row>
         </Grid>

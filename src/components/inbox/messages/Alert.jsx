@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Segment, Icon, Grid } from 'semantic-ui-react'
+import { Grid, Segment, Icon, Header, Divider } from 'semantic-ui-react'
 import * as actions from '../../../actions'
 
-export class Message extends Component {
+export class Alert extends Component {
   render() {
     return (
-      <Segment>
+      <Segment color='red'>
         <Grid>
-          <Grid.Row>
-            <Grid.Column width={2}>
+          <Grid.Row divided='horizontally' columns={12}>
+            <Grid.Column width={1}>
               <Icon name='mail outline' size='large' />
             </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={14}>
-              {this.props.message.title}
+            <Grid.Column width={11}>
+              <span className='title'>{this.props.alert.title}&nbsp;</span>
+              <span>|&nbsp;</span>
+              <span>{this.props.alert.body}</span>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -33,4 +33,4 @@ export default connect(
 
       }
     },
-)(Message)
+)(Alert)

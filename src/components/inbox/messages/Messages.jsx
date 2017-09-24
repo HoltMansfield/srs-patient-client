@@ -2,16 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Segment } from 'semantic-ui-react'
 import * as actions from '../../../actions'
+import Message from './Message'
+import Alert from './Alert'
+
 
 export class Messages extends Component {
   hasMessages() {
     return this.props.alerts.length > 0 || this.props.messages > 0
   }
+
   getMessageData() {
       let data = [];
 
       if(this.hasMessages()) {
-        data = [...this.props.alerts, ...this.props.messages]
+        const alerts = this.props.alerts.map(alert => ({ ...alert, type: 'alert' }))
+        const messages = this.props.messages.map(message => ({ ...message, type: 'message' }))
+        data = [...alerts, ...messages]
       }
 
       return data;
@@ -21,7 +27,11 @@ export class Messages extends Component {
     const inbox = this.getMessageData()
 
     return inbox.map(message => {
-      <Segment>Middle</Segment>
+      if(message.type === 'alert') {
+        return <Alert key={alert._id} alert={message} />
+      }
+
+      return <Message key={message._id} message={message} />
     })
   }
 
