@@ -34,19 +34,19 @@ export class Inbox extends Component {
 
   render() {
     return (
-      <div className='padded-page'>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
-                             setSearchTerms={this.setSearchTerms.bind(this)} />
-            </Grid.Column>
-            <Grid.Column width={13}>
+      <Grid columns={16} padded>
+        <Grid.Row stretched>
+          <Grid.Column width={2}>
+            <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
+                           setSearchTerms={this.setSearchTerms.bind(this)} />
+          </Grid.Column>
+          <Grid.Column width={14}>
+            <div className="pad-left-20">
               <Messages />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
+            </div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }
