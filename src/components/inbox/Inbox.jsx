@@ -35,7 +35,7 @@ export class Inbox extends Component {
   render() {
     return (
       <Grid columns={16} padded>
-        <Grid.Row stretched>
+        <Grid.Row>
           <Grid.Column width={2}>
             <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
                            setSearchTerms={this.setSearchTerms.bind(this)} />
