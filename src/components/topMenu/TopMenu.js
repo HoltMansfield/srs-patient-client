@@ -21,11 +21,7 @@ export class TopMenu extends Component {
   render() {
     return (
 <div>
-  // <Menu attached='top'>
-  //   <NavigationMenu />
-  //   <img src={logo} height='70' />
-  //   <RightCornerMenu />
-  // </Menu>
+topmenue∑π
 </div>
     )
   }

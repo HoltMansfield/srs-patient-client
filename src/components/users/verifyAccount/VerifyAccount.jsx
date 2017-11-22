@@ -67,34 +67,7 @@ export class VerifyAccount extends Component {
 
     return (
 <div>
-  // <Grid padded>
-  //   <Grid.Row columns={3}>
-  //     <Grid.Column></Grid.Column>
-  //     <Grid.Column>
-  //       <Segment raised>
-  //         <Form onSubmit={this.verify}>
-  //         <Form.Field>
-  //           <label>Please enter the three digit code we just emailed you</label>
-  //             <input id="code"
-  //               placeholder="code"
-  //               type="text"
-  //               value={values.code}
-  //               onChange={handleChange}
-  //               onBlur={handleBlur}
-  //             />
-  //             {errors.code &&
-  //               touched.code &&
-  //               <div>
-  //                 {errors.code}
-  //               </div>}
-  //         </Form.Field>
-  //         <Button disabled={this.shouldEnableSubmit()} type='submit'>Verify Account</Button>
-  //       </Form>
-  //       </Segment>
-  //     </Grid.Column>
-  //     <Grid.Column></Grid.Column>
-  //   </Grid.Row>
-  // </Grid>
+verfiy account
 </div>
     )
   }

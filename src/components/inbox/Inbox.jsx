@@ -35,19 +35,7 @@ export class Inbox extends Component {
   render() {
     return (
       <div>
-        // <Grid columns={16} padded>
-        //   <Grid.Row>
-        //     <Grid.Column width={2}>
-        //       <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
-        //                      setSearchTerms={this.setSearchTerms.bind(this)} />
-        //     </Grid.Column>
-        //     <Grid.Column width={14}>
-        //       <div className="pad-left-20">
-        //         <Messages />
-        //       </div>
-        //     </Grid.Column>
-        //   </Grid.Row>
-        // </Grid>
+inbox
       </div>
     )
   }

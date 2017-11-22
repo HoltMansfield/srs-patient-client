@@ -8,13 +8,7 @@ export class NavigationMenu extends Component {
   render() {
     return (
 <div>
-  // <Menu.Menu>
-  //   <Dropdown item className="icon" icon='content' simple>
-  //     <Dropdown.Menu>
-  //       <Dropdown.Item><Link to="/inbox">Inbox</Link></Dropdown.Item>
-  //     </Dropdown.Menu>
-  //   </Dropdown>
-  // </Menu.Menu>
+nav menu
 </div>
     )
   }

@@ -21,17 +21,7 @@ export class RightCornerMenu extends Component {
   render() {
     return (
 <div>
-  // <Menu.Menu position='right'>
-  //   <Dropdown item className='icon' icon='wrench' simple>
-  //     <Dropdown.Menu className='left'>
-  //       <Dropdown.Item onClick={this.logOut}>
-  //         <div>Log Out</div>
-  //         <div className='fine-print margin-top-10'>{this.props.user.email}</div>
-  //       </Dropdown.Item>
-  //       <Dropdown.Item>Edit Profile</Dropdown.Item>
-  //     </Dropdown.Menu>
-  //   </Dropdown>
-  // </Menu.Menu>
+right corner menumeπ
 </div>
     )
   }

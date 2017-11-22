@@ -97,51 +97,9 @@ export class CreateAccount extends Component {
     } = this.props
 
     return (
-<div>
-  // <Grid padded>
-  //   <Grid.Row columns={3}>
-  //     <Grid.Column></Grid.Column>
-  //     <Grid.Column>
-  //       <Segment raised>
-  //         <Form onSubmit={this.save}>
-  //         <Form.Field>
-  //           <label>E-Mail</label>
-  //             <input id="email"
-  //               placeholder="email"
-  //               type="text"
-  //               value={values.email}
-  //               onChange={handleChange}
-  //               onBlur={handleBlur}
-  //             />
-  //             {errors.email &&
-  //               touched.email &&
-  //               <div>
-  //                 {errors.email}
-  //               </div>}
-  //         </Form.Field>
-  //         <Form.Field>
-  //           <label>Password</label>
-  //             <input id="password"
-  //               placeholder="password"
-  //               type="password"
-  //               value={values.password}
-  //               onChange={handleChange}
-  //               onBlur={handleBlur}
-  //             />
-  //             {errors.password &&
-  //               touched.password &&
-  //               <div>
-  //                 {errors.password}
-  //               </div>}
-  //         </Form.Field>
-  //         <Button disabled={this.shouldEnableSubmit()} type='submit'>Create Account</Button>
-  //       </Form>
-  //       </Segment>
-  //     </Grid.Column>
-  //     <Grid.Column></Grid.Column>
-  //   </Grid.Row>
-  // </Grid>
-</div>
+      <div>
+
+      </div>
     )
   }
 }

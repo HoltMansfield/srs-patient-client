@@ -7,20 +7,7 @@ export class Message extends Component {
   render() {
     return (
       <div>
-        // <Segment>
-        //   <Grid>
-        //     <Grid.Row>
-        //       <Grid.Column width={1}>
-        //         <Icon name='mail outline' size='large' />
-        //       </Grid.Column>
-        //     </Grid.Row>
-        //     <Grid.Row>
-        //       <Grid.Column width={15}>
-        //         {this.props.message.title}
-        //       </Grid.Column>
-        //     </Grid.Row>
-        //   </Grid>
-        // </Segment>
+message
       </div>
     )
   }

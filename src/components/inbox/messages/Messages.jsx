@@ -39,9 +39,7 @@ export class Messages extends Component {
     if(this.hasMessages()) {
       return (
 <div>
-  // <Segment.Group>
-  //   {this.getMessages()}
-  // </Segment.Group>
+messages
 </div>
       )
     }
