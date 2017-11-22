@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Grid, Icon, Button, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+
+
 export class LandingPage extends Component {
   render() {
     return (
