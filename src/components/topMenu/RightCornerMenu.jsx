@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
-import { Dropdown, Icon, Menu } from 'semantic-ui-react'
+//import { Dropdown, Icon, Menu } from 'semantic-ui-react'
 import createRestrictedComponent from '../HOC/users/restrictedContent/RestrictedContent'
 import * as actions from '../../actions'
 
@@ -20,17 +20,19 @@ export class RightCornerMenu extends Component {
 
   render() {
     return (
-      <Menu.Menu position='right'>
-        <Dropdown item className='icon' icon='wrench' simple>
-          <Dropdown.Menu className='left'>
-            <Dropdown.Item onClick={this.logOut}>
-              <div>Log Out</div>
-              <div className='fine-print margin-top-10'>{this.props.user.email}</div>
-            </Dropdown.Item>
-            <Dropdown.Item>Edit Profile</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu.Menu>
+<div>
+  // <Menu.Menu position='right'>
+  //   <Dropdown item className='icon' icon='wrench' simple>
+  //     <Dropdown.Menu className='left'>
+  //       <Dropdown.Item onClick={this.logOut}>
+  //         <div>Log Out</div>
+  //         <div className='fine-print margin-top-10'>{this.props.user.email}</div>
+  //       </Dropdown.Item>
+  //       <Dropdown.Item>Edit Profile</Dropdown.Item>
+  //     </Dropdown.Menu>
+  //   </Dropdown>
+  // </Menu.Menu>
+</div>
     )
   }
 }

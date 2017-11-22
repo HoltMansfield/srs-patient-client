@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import { Segment, Grid, Form, Button } from 'semantic-ui-react'
+//import { Segment, Grid, Form, Button } from 'semantic-ui-react'
 import { notify } from 'react-notify-toast'
 import * as actions from '../../../actions'
 
@@ -30,27 +30,27 @@ export class Login extends Component {
 
   render() {
     return (
-      <Grid padded>
-        <Grid.Row columns={3}>
-          <Grid.Column></Grid.Column>
-          <Grid.Column>
-            <Segment raised>
-              <Form>
-              <Form.Field>
-                <label>E-Mail</label>
-                <input placeholder='email' ref='email' />
-              </Form.Field>
-              <Form.Field>
-                <label>Password</label>
-                <input placeholder='password' ref='password' type="password" />
-              </Form.Field>
-              <Button type='submit' onClick={this.handleSubmit}>Login</Button>
-            </Form>
-            </Segment>
-          </Grid.Column>
-          <Grid.Column></Grid.Column>
-        </Grid.Row>
-      </Grid>
+<div>      // <Grid padded>
+      //   <Grid.Row columns={3}>
+      //     <Grid.Column></Grid.Column>
+      //     <Grid.Column>
+      //       <Segment raised>
+      //         <Form>
+      //         <Form.Field>
+      //           <label>E-Mail</label>
+      //           <input placeholder='email' ref='email' />
+      //         </Form.Field>
+      //         <Form.Field>
+      //           <label>Password</label>
+      //           <input placeholder='password' ref='password' type="password" />
+      //         </Form.Field>
+      //         <Button type='submit' onClick={this.handleSubmit}>Login</Button>
+      //       </Form>
+      //       </Segment>
+      //     </Grid.Column>
+      //     <Grid.Column></Grid.Column>
+      //   </Grid.Row>
+      // </Grid></div>
     )
   }
 }

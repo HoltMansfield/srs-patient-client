@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Menu, Segment, Label, Input } from 'semantic-ui-react'
+//import { Grid, Menu, Segment, Label, Input } from 'semantic-ui-react'
 import * as actions from '../../actions'
 import InboxSideMenu from './inbox-side-menu/InboxSideMenu'
 import Messages from './messages/Messages'
@@ -34,19 +34,21 @@ export class Inbox extends Component {
 
   render() {
     return (
-      <Grid columns={16} padded>
-        <Grid.Row>
-          <Grid.Column width={2}>
-            <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
-                           setSearchTerms={this.setSearchTerms.bind(this)} />
-          </Grid.Column>
-          <Grid.Column width={14}>
-            <div className="pad-left-20">
-              <Messages />
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <div>
+        // <Grid columns={16} padded>
+        //   <Grid.Row>
+        //     <Grid.Column width={2}>
+        //       <InboxSideMenu setMessageViewMode={this.setMessageViewMode.bind(this)}
+        //                      setSearchTerms={this.setSearchTerms.bind(this)} />
+        //     </Grid.Column>
+        //     <Grid.Column width={14}>
+        //       <div className="pad-left-20">
+        //         <Messages />
+        //       </div>
+        //     </Grid.Column>
+        //   </Grid.Row>
+        // </Grid>
+      </div>
     )
   }
 }

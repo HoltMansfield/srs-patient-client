@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Segment } from 'semantic-ui-react'
+//import { Segment } from 'semantic-ui-react'
 import * as actions from '../../../actions'
 import Message from './Message'
 import Alert from './Alert'
@@ -38,9 +38,11 @@ export class Messages extends Component {
   getContent() {
     if(this.hasMessages()) {
       return (
-        <Segment.Group>
-          {this.getMessages()}
-        </Segment.Group>
+<div>
+  // <Segment.Group>
+  //   {this.getMessages()}
+  // </Segment.Group>
+</div>
       )
     }
     else {

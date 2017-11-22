@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import ReactDOM from 'react-dom'
-import { Grid, Button } from 'semantic-ui-react'
+//import { Grid, Button } from 'semantic-ui-react'
 
 import { CreateAccount } from './CreateAccount'
 
