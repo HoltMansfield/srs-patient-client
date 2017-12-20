@@ -16,11 +16,11 @@ import NotFound from '../404/NotFound'
 // ToDo: static component?
 export class Routes extends Component {
   render() {
+    // <TopMenu />
 
     return (
       <BrowserRouter>
         <div>
-          <TopMenu />
           <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/login" component={Login} />
