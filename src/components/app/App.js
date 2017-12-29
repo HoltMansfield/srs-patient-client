@@ -4,6 +4,7 @@ import { Layout, Menu, Icon } from 'antd'
 import Sidebar from 'react-sidebar';
 import Routes from '../../components/routing/Routes'
 import Overlay from '../../components/overlay/Overlay'
+import SideMenu from './sideMenu/SideMenu'
 
 export class App extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export class App extends Component {
 
   render() {
     const { Header, Content, Footer } = Layout
-    const sidebarContent = <div><b>Sidebar content</b></div>
+    const sidebarContent = <SideMenu />
     const sideStyles = {
       overlay: {
         zIndex: 1,
@@ -44,7 +45,8 @@ export class App extends Component {
          open={this.state.sidebarOpen}
          onSetOpen={this.onSetSidebarOpen}>
          <Notifications />
-           <Layout>
+           <Layout style={{ minHeight: '100vh' }}>
+             
              <Layout>
                <Header style={{ background: '#fff', padding: 0 }} />
                <Content style={{ margin: '24px 16px 0' }}>
