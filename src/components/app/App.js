@@ -5,6 +5,7 @@ import Sidebar from 'react-sidebar';
 import Routes from '../../components/routing/Routes'
 import Overlay from '../../components/overlay/Overlay'
 import SideMenu from './sideMenu/SideMenu'
+import DesktopOnly from '../desktopOnly/DesktopOnly'
 
 export class App extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ export class App extends Component {
          onSetOpen={this.onSetSidebarOpen}>
          <Notifications />
            <Layout style={{ minHeight: '100vh' }}>
-             
+             <DesktopOnly><SideMenu /></DesktopOnly>
              <Layout>
                <Header style={{ background: '#fff', padding: 0 }} />
                <Content style={{ margin: '24px 16px 0' }}>

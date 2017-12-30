@@ -9,8 +9,7 @@ export class SideMenu extends Component {
   }
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
+    this.setState({ collapsed })
   }
 
   render() {
