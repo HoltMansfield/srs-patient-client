@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import './desktopOnly.css'
 
 
-
-export class DesktopOnly extends Component {
+export class MobileOnly extends Component {
   render() {
     return (
       <div className="showOnDesktopOnly">
@@ -13,4 +11,4 @@ export class DesktopOnly extends Component {
   }
 }
 
-export default DesktopOnly
+export default MobileOnly

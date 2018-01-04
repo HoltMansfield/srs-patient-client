@@ -30,7 +30,7 @@ export class Login extends Component {
 
   render() {
     return (
-<div>login</div>
+      <div>login</div>
     )
   }
 }

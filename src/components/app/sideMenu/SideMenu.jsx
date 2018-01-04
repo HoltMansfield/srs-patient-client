@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Layout, Menu, Icon, Breadcrumb } from 'antd'
 import * as actions from '../../../actions'
+import createRestrictedComponent from '../../HOC/users/restrictedContent/RestrictedContent'
+
 
 export class SideMenu extends Component {
   state = {
@@ -60,7 +62,7 @@ SideMenu.defaultProps = {
   collapsible: true
 }
 
-export default connect(
+export default createRestrictedComponent(connect(
   state => { return {
 
       }
@@ -69,4 +71,4 @@ export default connect(
 
       }
     },
-)(SideMenu)
+)(SideMenu))

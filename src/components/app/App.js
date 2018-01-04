@@ -5,7 +5,8 @@ import Sidebar from 'react-sidebar';
 import Routes from '../../components/routing/Routes'
 import Overlay from '../../components/overlay/Overlay'
 import SideMenu from './sideMenu/SideMenu'
-import DesktopOnly from '../desktopOnly/DesktopOnly'
+import { HeaderContent } from './headerContent/HeaderContent'
+import DesktopOnly from '../adaptiveRendering/desktopOnly/DesktopOnly'
 
 export class App extends Component {
   constructor(props) {
@@ -49,14 +50,16 @@ export class App extends Component {
            <Layout style={{ minHeight: '100vh' }}>
              <DesktopOnly><SideMenu /></DesktopOnly>
              <Layout>
-               <Header style={{ background: '#fff', padding: 0 }} />
+               <Header style={{ background: '#fff', padding: 0 }}>
+                 <HeaderContent />
+               </Header>
                <Content style={{ margin: '24px 16px 0' }}>
                  <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                    <Routes />
                  </div>
                </Content>
                <Footer style={{ textAlign: 'center' }}>
-                 Ant Design ©2016 Created by Ant UED
+                 Stanford has totally not authorized this
                </Footer>
              </Layout>
            </Layout>
