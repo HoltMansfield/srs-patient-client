@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --setupTestFrameworkScriptFile ./test/mockLocalStorage.js",
+    "lint": "react-scripts run lint",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
